@@ -6,7 +6,10 @@ using System.Threading.Tasks;
 
 namespace Oreilly_Csharp_ch7_polymorphism_P331
 {
-    class Location
+    abstract class Location
     {
+        public string Name;
+        public Location[] Exits;
+        virtual public string Description { get; }
     }
 }

@@ -6,9 +6,9 @@ using System.Threading.Tasks;
 
 namespace Oreilly_Csharp_ch7_polymorphism_P331
 {
-    class Room :Location
+    interface IHasExteriorDoor
     {
-        private string decoration;
-        private string field;
+        string DoorDescription { get; } 
+        Location  DoorLocation { get; set; }
     }
 }
