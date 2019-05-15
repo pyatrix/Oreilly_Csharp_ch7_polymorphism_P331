@@ -60,5 +60,35 @@ namespace Oreilly_Csharp_ch7_polymorphism_P331
             kitchen.DoorLocation = backYard;
             backYard.DoorLocation = kitchen;
         }
+
+        //在表單中顯示新場所
+        private void MoveToANewLocation (Location newLocation)
+        {
+            currentLocation = newLocation;
+
+            exits.Items.Clear();
+            for (int i = 0; i < currentLocation.Exits.Length; i++)
+                exits.Items.Add(currentLocation.Exits[i].Name);
+            exits.SelectedIndex = 0;
+
+            description.Text = currentLocation.Description;
+
+            //如果當前場所沒有實作IHasExteriorDoor，那會讓"Go through the door" 按鈕不可見
+            if (currentLocation is IHasExteriorDoor)
+                goThroughTheDoor.Visible = true;
+            else
+                goThroughTheDoor.Visible = false;
+        }
+
+        private void goHere_Click(object sender, EventArgs e)
+        {
+            MoveToANewLocation(currentLocation.Exits[exits.SelectedIndex]);
+        }
+
+        private void goThroughTheDoor_Click(object sender, EventArgs e)
+        {
+            IHasExteriorDoor hasDoor = currentLocation as IHasExteriorDoor;
+            MoveToANewLocation(hasDoor.DoorLocation);
+        }
     }
 }
