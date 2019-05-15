@@ -10,8 +10,6 @@ namespace Oreilly_Csharp_ch7_polymorphism_P331
         public string Name { get; private set; }
         public Location[] Exits;
 
-
-
         virtual public string Description
         {
             get
