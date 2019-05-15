@@ -16,6 +16,7 @@ namespace Oreilly_Csharp_ch7_polymorphism_P331
         {
             InitializeComponent();
             CreateObjects();
+            currentLocation
         }
         
         private void CreateObjects()
@@ -26,16 +27,16 @@ namespace Oreilly_Csharp_ch7_polymorphism_P331
             OutsideWithDoor backYard = new OutsideWithDoor("Back Yard", true, " a screen door ");
             //...............................................name,........hot,.....decoration
             OutsideWithDoor frontYard = new OutsideWithDoor("Front Yard", false, " an oak door with a brass knob");
-            //..........................................name,..........decoration,............door decoration
+            //..........................................name,..........decoration,............Door Description
             RoomWithDoor livingRoom = new RoomWithDoor("Living Room", "an antique carpet ", " an oak door with a brass knob");
             //..........................name,..........decoration
             Room diningRoom = new Room("Dining Room", "a crystal chandelier");
-            //.......................................name,.......decoration,.....................door decoration
+            //.......................................name,.......decoration,.....................Door Description
             RoomWithDoor kitchen = new RoomWithDoor("Kitchen", " a stainless steel appliance", " a screen door ");
 
             //6個objects都繼承抽象類別Location，因此對Exits填值
             //Exits是Location類別里的public字串陣列欄位，不應用這種方式封裝。
-            //Location代表該區域的出口連接哪裡
+            //Location陣列+Exit欄位代表該區域的出口連接哪裡
             garden.Exits = new Location[] { frontYard, backYard };
             backYard.Exits = new Location[] { frontYard, garden };
             frontYard.Exits = new Location[] { backYard, garden };
