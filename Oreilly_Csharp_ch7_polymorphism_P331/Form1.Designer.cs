@@ -54,6 +54,7 @@
             // 
             // exits
             // 
+            this.exits.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
             this.exits.FormattingEnabled = true;
             this.exits.Location = new System.Drawing.Point(94, 231);
             this.exits.Name = "exits";

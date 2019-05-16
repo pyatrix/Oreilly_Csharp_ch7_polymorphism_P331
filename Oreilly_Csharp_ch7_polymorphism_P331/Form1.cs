@@ -27,6 +27,7 @@ namespace Oreilly_Csharp_ch7_polymorphism_P331
         {
             InitializeComponent();
             CreateObjects();
+            MoveToANewLocation(garden);
         }
         
         private void CreateObjects()
