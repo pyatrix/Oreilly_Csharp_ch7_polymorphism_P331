@@ -1,14 +1,14 @@
-﻿
-namespace Oreilly_Csharp_ch7_polymorphism_P331
+﻿namespace Oreilly_Csharp_ch7_polymorphism_P331
 {
-    class RoomWithDoor : Room, IHasExteriorDoor
+    class RoomWithDoor : RoomWithHidingPlace, IHasExteriorDoor
     {
-        public string DoorDescription { get; private set; }
-        public Location DoorLocation { get; set; }
-
-        public RoomWithDoor(string name, string decoration, string doorDescription) : base(name, decoration)
+        public RoomWithDoor(string name, string decoration, string hidingPlaceName, string doorDescription) 
+            : base(name, decoration, hidingPlaceName)
         {
             DoorDescription = doorDescription;
         }
+
+        public string DoorDescription { get; private set; }
+        public Location DoorLocation { get; set; }
     }
 }
